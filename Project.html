@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Base</title>
+    <link rel="stylesheet" href="program.css">
+</head>
+<body>
+    <h1> Program การแปลงเลขฐาน </h1>
+    <br>
+    <label for="numberInput">ระบุเลข: </label>
+    <input type="text" id="numberInput">
+    <label for="fromBase">แปลง: </label>
+    <select id="fromBase">
+        <option value="2">เลขฐาน 2</option>
+        <option value="10">เลขฐาน 10</option>
+        <option value="16">เลขฐาน 16</option>
+    </select>
+    <label for="toBase">เป็น: </label>
+    <select id="toBase">
+        <option value="2">เลขฐาน 2</option>
+        <option value="10">เลขฐาน 10</option>
+        <option value="16">เลขฐาน 16</option>
+    </select>
+
+    <button onclick="convert()">ยืนยัน</button>
+    <p id="result"></p>
+    <script>
+        function convert(){
+            const numberInput = document.getElementById('numberInput').value;
+            const fromBase = parseInt(document.getElementById('fromBase').value);
+            const toBase = parseInt(document.getElementById('toBase').value);
+
+            const decimalNumber = parseInt(numberInput, fromBase);
+            const result = decimalNumber.toString(toBase);
+
+            document.getElementById('result').innerText = `คำตอบ: ${result}`;
+        }
+    </script>
+</body>
+</html>
